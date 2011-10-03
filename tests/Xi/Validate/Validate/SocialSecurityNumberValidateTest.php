@@ -28,13 +28,19 @@ class SocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCase
     
     public function testValidationFailsIfDateIsNotValid()
     {
+        $this->assertFalse($this->validator->isValid('311249+417U'));
+        $this->assertEquals(array(SocialSecurityNumberValidate::MSG_DATE), $this->validator->getErrors());
+        
         $this->assertFalse($this->validator->isValid('071362-417U'));                    
         $this->assertEquals(array(SocialSecurityNumberValidate::MSG_DATE), $this->validator->getErrors());
     }
     
     public function testValidationFailsIfIdentIsNotValid()
-    {
-        $this->assertFalse($this->validator->isValid('071162-900U'));                    
+    {   
+        $this->assertFalse($this->validator->isValid('071162-000U'));        
+        $this->assertEquals(array(SocialSecurityNumberValidate::MSG_IDENT), $this->validator->getErrors());
+        
+        $this->assertFalse($this->validator->isValid('071162-001U'));
         $this->assertEquals(array(SocialSecurityNumberValidate::MSG_IDENT), $this->validator->getErrors());
     }
     
@@ -46,6 +52,9 @@ class SocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCase
     
     public function testValidationReturnsTrue()
     {
+        $this->assertTrue($this->validator->isValid('071162-999L'));        
+        $this->assertEmpty($this->validator->getErrors());
+        
         $this->assertTrue($this->validator->isValid('071162-417U'));
         $this->assertEmpty($this->validator->getErrors());
     }

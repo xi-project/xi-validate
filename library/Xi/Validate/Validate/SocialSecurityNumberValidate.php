@@ -40,7 +40,7 @@ class SocialSecurityNumberValidate extends AbstractValidate
      * Maximum numeric value of the second part of the id.
      * @var int
      */
-    protected $identMax = 899;
+    protected $identMax = 999;
     
     /**
      * Possible verification characters in order of value.
@@ -85,7 +85,7 @@ class SocialSecurityNumberValidate extends AbstractValidate
         $month = (int) substr($ddmmyy, 2, 2);
         $year  = (int) ($this->centuries[$century] . substr($ddmmyy, 4, 2));
         
-        if (!checkdate($month, $day, $year)) {
+        if (!checkdate($month, $day, $year) || $year < 1850) {
             $this->error(self::MSG_DATE);
             return false;
         }
