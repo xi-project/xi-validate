@@ -1,3 +1,6 @@
 [submodule "external/zend-framework"]
 	path = external/zend-framework
 	url = git@github.com:xi-project/zend-framework.git
+[submodule "external/symfony-validator/src/Symfony/Component/Validator"]
+	path = external/symfony-validator/src/Symfony/Component/Validator
+	url = https://github.com/symfony/Validator.git
