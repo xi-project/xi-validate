@@ -6,13 +6,16 @@ use Symfony\Component\Validator\Constraint;
 use Xi\Validate\Validate\SocialSecurityNumberValidate as SocialSecurityNumberValidateGeneric;
 
 /**
- * @Annotation
- *
- * @api
+ * Symfony constraint class for symfony SSN validator
+ * 
+ * @category   Xi
+ * @package    Validate
+ * @subpackage Symfony
+ * @author Jarmo Roivas <jarmo.roivas@brainalliance.com>
  */
 class SocialSecurityNumber extends Constraint
 {
-    public $message = 'value is not a valid social security number';
+    public $message = null;
     
     public $length = 11;
     
@@ -27,10 +30,13 @@ class SocialSecurityNumber extends Constraint
     
     public function getMessage($messageId)
     {
-        if (isset($this->messages[$messageId])) {
-            return $this->messages[$messageId];
-        } else {
+        if ($this->message) {
             return $this->message;
+        }
+        else if (isset($this->_messages[$messageId])) {
+            return $this->_messages[$messageId];
+        } else {
+            return $messageId;
         }
     }
 }

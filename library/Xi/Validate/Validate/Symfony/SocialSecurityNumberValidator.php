@@ -9,7 +9,12 @@ use Xi\Validate\Validate\SocialSecurityNumberValidate as SocialSecurityNumberVal
 use Xi\Validate\Validate;
 
 /**
- * @api
+ * Validates Finnish SSN or Personal ID (HETU).
+ * 
+ * @category   Xi
+ * @package    Validate
+ * @subpackage Symfony
+ * @author Jarmo Roivas <jarmo.roivas@brainalliance.com>
  */
 class SocialSecurityNumberValidator extends ConstraintValidator
 {
@@ -44,11 +49,11 @@ class SocialSecurityNumberValidator extends ConstraintValidator
         
         foreach($validator->getErrors() as $error) {
             $message = $constraint->getMessage($error);
-            
             $this->setMessage($message, array(
                 '{{ value }}' => $value,
                 '{{ len }}' => $constraint->length,
             ));
+            
         }
         
         return false;

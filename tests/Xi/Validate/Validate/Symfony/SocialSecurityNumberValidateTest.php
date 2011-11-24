@@ -21,4 +21,11 @@ class SocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->validator->isValid('100385-169D', $constrait));
         $this->assertNotEmpty($this->validator->getMessageTemplate());
     }
+    
+    public function testValidationReturnsFalseAndCustomMessage()
+    {
+        $constrait = new SocialSecurityNumber(array('message' => 'custom message'));
+        $this->assertFalse($this->validator->isValid('100385-169D', $constrait));
+        $this->assertEquals($this->validator->getMessageTemplate(), 'custom message');
+    }
 }
