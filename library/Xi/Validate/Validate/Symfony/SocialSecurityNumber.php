@@ -17,11 +17,29 @@ use Xi\Validate\Validate\SocialSecurityNumberValidate as SocialSecurityNumberVal
  */
 class SocialSecurityNumber extends Constraint
 {
+    /**
+     * 
+     * Default message
+     * 
+     * @var string
+     */
     public $message = null;
     
+    /**
+     * 
+     * Valid length of the value
+     * 
+     * @var int
+     */
     public $length = 11;
     
-    protected $_messages = array(
+    /**
+     * 
+     * Message templates
+     * 
+     * @var array
+     */
+    protected $messageTemplates = array(
         SocialSecurityNumberValidateGeneric::MSG_STRING  => "'{{ value }}' is not a string.",
         SocialSecurityNumberValidateGeneric::MSG_LENGTH  => "Length of '{{ value }}' is not {{ len }}.",
         SocialSecurityNumberValidateGeneric::MSG_DATE    => "The date part in '{{ value }}' is not valid.",
@@ -30,13 +48,20 @@ class SocialSecurityNumber extends Constraint
         SocialSecurityNumberValidateGeneric::MSG_HASH    => "The hash calculated differs from the one given in '{{ value }}'.",
     ); 
     
+    /**
+     * 
+     * Get error message text. 
+     * If default message is set then return it, in other case return message from message templates.
+     * 
+     * @param string $messageId
+     * @return string
+     */
     public function getMessage($messageId)
     {
         if ($this->message) {
             return $this->message;
-        }
-        else if (isset($this->_messages[$messageId])) {
-            return $this->_messages[$messageId];
+        } else if (isset($this->messageTemplates[$messageId])) {
+            return $this->messageTemplates[$messageId];
         } else {
             return $messageId;
         }

@@ -19,17 +19,38 @@ use Xi\Validate\Validate;
  */
 class SocialSecurityNumberValidator extends ConstraintValidator
 {
-    protected $_validator = null;
     
-    protected function _getValidator()
+    /**
+     * 
+     * validator instance
+     * 
+     * @var SocialSecurityNumberValidateGeneric
+     */
+    protected $validator = null;
+    
+    /**
+     * 
+     * get generic validator instance
+     * 
+     * @return SocialSecurityNumberValidateGeneric
+     */
+    protected function getValidator()
     {
-        if ($this->_validator === null) {
-            $this->_validator = new SocialSecurityNumberValidateGeneric();
+        if ($this->validator === null) {
+            $this->validator = new SocialSecurityNumberValidateGeneric();
         }
         
-        return $this->_validator;
+        return $this->validator;
     }
     
+    /**
+     * 
+     * validate given value
+     * 
+     * @param string $value
+     * @param Constraint $constraint
+     * @return bool
+     */
     public function isValid($value, Constraint $constraint)
     {
         if (null === $value || '' === $value) {
@@ -42,13 +63,13 @@ class SocialSecurityNumberValidator extends ConstraintValidator
         
         $value = (string) $value;
         
-        $validator = $this->_getValidator();
+        $validator = $this->getValidator();
         
-        if($validator->isValid($value)) {
+        if ($validator->isValid($value)) {
             return true;
         }
         
-        foreach($validator->getErrors() as $error) {
+        foreach ($validator->getErrors() as $error) {
             $message = $constraint->getMessage($error);
             $this->setMessage($message, array(
                 '{{ value }}' => $value,
