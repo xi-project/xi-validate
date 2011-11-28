@@ -7,7 +7,9 @@ error_reporting(E_ALL | E_STRICT);
 /**
  * Get both the test and library directories in the include path
  */
-set_include_path(dirname(__DIR__) . '/library' . PATH_SEPARATOR . __DIR__ . PATH_SEPARATOR . get_include_path());
+set_include_path(dirname(__DIR__) . '/library' . PATH_SEPARATOR 
+    . dirname(__DIR__) . '/external/symfony-validator/src' . PATH_SEPARATOR
+    . __DIR__ . PATH_SEPARATOR . get_include_path());
 
 /**
  * Register a trivial autoloader
