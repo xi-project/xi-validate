@@ -8,6 +8,8 @@ use Xi\Validate\Validate\SocialSecurityNumberValidate as SocialSecurityNumberVal
 /**
  * Symfony constraint class for symfony SSN validator
  * 
+ * @Annotation
+ * @api
  * @category   Xi
  * @package    Validate
  * @subpackage Symfony

@@ -11,6 +11,7 @@ use Xi\Validate\Validate;
 /**
  * Validates Finnish SSN or Personal ID (HETU).
  * 
+ * @api
  * @category   Xi
  * @package    Validate
  * @subpackage Symfony
