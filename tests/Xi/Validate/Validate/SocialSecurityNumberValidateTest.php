@@ -50,18 +50,47 @@ class SocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array(SocialSecurityNumberValidate::MSG_HASH), $this->validator->getErrors());
     }
     
-    public function testValidationReturnsTrue()
+    /**
+     * @test
+     * @dataProvider validDataProvider
+     */
+    public function testValidationReturnsTrue($socialSecurityNumber)
     {
-        $this->assertTrue($this->validator->isValid('071162-999L'));        
-        $this->assertEmpty($this->validator->getErrors());
-        
-        $this->assertTrue($this->validator->isValid('071162-417U'));
+        $this->assertTrue($this->validator->isValid($socialSecurityNumber));
         $this->assertEmpty($this->validator->getErrors());
     }
-    
-    public function testValidationReturnsFalse()
+
+    /**
+     * @test
+     * @dataProvider invalidDataProvider
+     */
+    public function testValidationReturnsFalse($socialSecurityNumber)
     {
-        $this->assertFalse($this->validator->isValid('100385-169D'));
+        $this->assertFalse($this->validator->isValid($socialSecurityNumber));
         $this->assertNotEmpty($this->validator->getErrors());
+    }
+
+    /**
+     * @return array
+     */
+    public function validDataProvider()
+    {
+        return array(
+            array('071162-999L'),
+            array('071162-417U'),
+            array('071162-417u'),
+            array('010204A082X'),
+            array('010204a082x') 
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function invalidDataProvider()
+    {
+        return array(
+            array('100385-169D')
+        );
     }
 }
