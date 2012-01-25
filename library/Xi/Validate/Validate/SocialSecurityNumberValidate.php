@@ -61,6 +61,9 @@ class SocialSecurityNumberValidate extends AbstractValidate
             $this->error(self::MSG_STRING);
             return false;
         }
+
+        //no need to be case sensitive
+        $value = strtoupper($value);
         
         // length validation
         if (strlen($value) != $this->length) {
