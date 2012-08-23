@@ -9,8 +9,9 @@ namespace Xi\Validate\Validate;
  * @package  Validate
  * @author   Ville Kalliomäki <ville.kalliomaki@soprano.fi>
  * @author   Panu Leppäniemi  <me@panuleppaniemi.com>
+ * @author   Artur Gajewski   <artur.gajewski@soprano.fi>
  */
-class SocialSecurityNumberValidate extends AbstractValidate
+class FinnishSocialSecurityNumberValidate extends AbstractValidate
 {
     const MSG_STRING  = "Value is not a string.";
     const MSG_LENGTH  = "Value is not 11 characters.";

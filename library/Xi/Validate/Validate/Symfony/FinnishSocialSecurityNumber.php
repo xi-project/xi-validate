@@ -3,7 +3,8 @@
 namespace Xi\Validate\Validate\Symfony;
 
 use Symfony\Component\Validator\Constraint;
-use Xi\Validate\Validate\SocialSecurityNumberValidate as SocialSecurityNumberValidateGeneric;
+use Xi\Validate\Validate\FinnishSocialSecurityNumberValidate as 
+        FinnishSocialSecurityNumberValidateGeneric;
 
 /**
  * Symfony constraint class for symfony SSN validator
@@ -14,8 +15,9 @@ use Xi\Validate\Validate\SocialSecurityNumberValidate as SocialSecurityNumberVal
  * @package    Validate
  * @subpackage Symfony
  * @author Jarmo Roivas <jarmo.roivas@brainalliance.com>
+ * @author Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class SocialSecurityNumber extends Constraint
+class FinnishSocialSecurityNumber extends Constraint
 {
     /**
      * 
@@ -40,12 +42,12 @@ class SocialSecurityNumber extends Constraint
      * @var array
      */
     protected $messageTemplates = array(
-        SocialSecurityNumberValidateGeneric::MSG_STRING  => "'{{ value }}' is not a string.",
-        SocialSecurityNumberValidateGeneric::MSG_LENGTH  => "Length of '{{ value }}' is not {{ len }}.",
-        SocialSecurityNumberValidateGeneric::MSG_DATE    => "The date part in '{{ value }}' is not valid.",
-        SocialSecurityNumberValidateGeneric::MSG_CENTURY => "The century in '{{ value }}' is not valid.",
-        SocialSecurityNumberValidateGeneric::MSG_IDENT   => "The identifier part in '{{ value }}' is not in the valid range.",
-        SocialSecurityNumberValidateGeneric::MSG_HASH    => "The hash calculated differs from the one given in '{{ value }}'.",
+        FinnishSocialSecurityNumberValidateGeneric::MSG_STRING  => "'{{ value }}' is not a string.",
+        FinnishSocialSecurityNumberValidateGeneric::MSG_LENGTH  => "Length of '{{ value }}' is not {{ len }}.",
+        FinnishSocialSecurityNumberValidateGeneric::MSG_DATE    => "The date part in '{{ value }}' is not valid.",
+        FinnishSocialSecurityNumberValidateGeneric::MSG_CENTURY => "The century in '{{ value }}' is not valid.",
+        FinnishSocialSecurityNumberValidateGeneric::MSG_IDENT   => "The identifier part in '{{ value }}' is not in the valid range.",
+        FinnishSocialSecurityNumberValidateGeneric::MSG_HASH    => "The hash calculated differs from the one given in '{{ value }}'.",
     ); 
     
     /**
