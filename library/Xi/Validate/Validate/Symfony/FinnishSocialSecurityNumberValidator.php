@@ -5,7 +5,8 @@ namespace Xi\Validate\Validate\Symfony;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
-use Xi\Validate\Validate\SocialSecurityNumberValidate as SocialSecurityNumberValidateGeneric;
+use Xi\Validate\Validate\FinnishSocialSecurityNumberValidate as 
+        FinnishSocialSecurityNumberValidateGeneric;
 use Xi\Validate\Validate;
 
 /**
@@ -16,15 +17,16 @@ use Xi\Validate\Validate;
  * @package    Validate
  * @subpackage Symfony
  * @author Jarmo Roivas <jarmo.roivas@brainalliance.com>
+ * @author Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class SocialSecurityNumberValidator extends ConstraintValidator
+class FinnishSocialSecurityNumberValidator extends ConstraintValidator
 {
     
     /**
      * 
      * validator instance
      * 
-     * @var SocialSecurityNumberValidateGeneric
+     * @var FinnishSocialSecurityNumberValidateGeneric
      */
     protected $validator = null;
     
@@ -32,12 +34,12 @@ class SocialSecurityNumberValidator extends ConstraintValidator
      * 
      * get generic validator instance
      * 
-     * @return SocialSecurityNumberValidateGeneric
+     * @return FinnishSocialSecurityNumberValidateGeneric
      */
     protected function getValidator()
     {
         if ($this->validator === null) {
-            $this->validator = new SocialSecurityNumberValidateGeneric();
+            $this->validator = new FinnishSocialSecurityNumberValidateGeneric();
         }
         
         return $this->validator;

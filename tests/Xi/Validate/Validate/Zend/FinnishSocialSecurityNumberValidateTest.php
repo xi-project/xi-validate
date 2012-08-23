@@ -1,11 +1,11 @@
 <?php
 namespace Xi\Validate\Validate\Zend;
 
-class SocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCase
+class FinnishSocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->validator = new SocialSecurityNumberValidate();
+        $this->validator = new FinnishSocialSecurityNumberValidate();
     }
     
     public function testValidationReturnsTrue()
