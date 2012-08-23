@@ -15,7 +15,7 @@ use Xi\Validate\Validate\CompanyIdValidate as CompanyIdValidateGeneric;
  * @subpackage Symfony
  * @author     Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class SocialSecurityNumber extends Constraint
+class CompanyId extends Constraint
 {
     /**
      * 
