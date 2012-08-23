@@ -24,19 +24,16 @@ class FinnishCompanyIdValidate extends AbstractValidate
     {
         $this->setValue($value);
         
-        // is value a string
         if (!is_string($value)) {
             $this->error(self::MSG_STRING);
             return false;
         }
-
-        // length validation
+        
         if (strlen($value) != 9) {
             $this->error(self::MSG_FORMAT);
             return false;
         }
         
-        // does value contain - character
         if (substr_count($value, '-') != 1) {
             $this->error(self::MSG_FORMAT);
             return false;
@@ -44,7 +41,6 @@ class FinnishCompanyIdValidate extends AbstractValidate
 
         $parts = explode('-', $value);
 
-        // are the parts numeric?
         if(!is_numeric($parts[0]) || !is_numeric($parts[1])) {
             $this->error(self::MSG_FORMAT);
             return false;
@@ -64,6 +60,23 @@ class FinnishCompanyIdValidate extends AbstractValidate
             }
         }
 
+        if ($this->doCheckSum($number, $checksum)) {
+            return true;
+        } else {
+            $this->error(self::MSG_CHECKSUM);
+            return false;
+        }
+    }
+    
+    /**
+     * Do the checksum of the ID
+     * 
+     * @param int $number
+     * @param int $checksum
+     * @return boolean 
+     */
+    private function doCheckSum($number, $checksum)
+    {
         $mp = array(7,9,10,5,8,4,2);
         $sum = 0;
 
@@ -77,9 +90,6 @@ class FinnishCompanyIdValidate extends AbstractValidate
             return true;  
         } elseif ($check > 1 && (11 - $check) == $checksum) {
             return true;  
-        } 
-
-        $this->error(self::MSG_CHECKSUM);
-        return false;
+        }
     }
 }
