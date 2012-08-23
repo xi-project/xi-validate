@@ -5,7 +5,7 @@ namespace Xi\Validate\Validate\Symfony;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
-use Xi\Validate\Validate\CompanyIdValidate as CompanyIdValidateGeneric;
+use Xi\Validate\Validate\FinnishCompanyIdValidate as FinnishCompanyIdValidateGeneric;
 use Xi\Validate\Validate;
 
 /**
@@ -17,25 +17,25 @@ use Xi\Validate\Validate;
  * @subpackage Symfony
  * @author     Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class CompanyIdValidator extends ConstraintValidator
+class FinnishCompanyIdValidator extends ConstraintValidator
 {
     
     /**
      * Validator instance
      * 
-     * @var SocialSecurityNumberValidateGeneric
+     * @var FinnishCompanyIdValidateGeneric
      */
     protected $validator = null;
     
     /**
      * Get generic validator instance
      * 
-     * @return SocialSecurityNumberValidateGeneric
+     * @return FinnishCompanyIdValidateGeneric
      */
     protected function getValidator()
     {
         if ($this->validator === null) {
-            $this->validator = new CompanyIdValidateGeneric();
+            $this->validator = new FinnishCompanyIdValidateGeneric();
         }
         
         return $this->validator;

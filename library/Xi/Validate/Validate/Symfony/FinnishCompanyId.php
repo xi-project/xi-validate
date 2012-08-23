@@ -3,10 +3,10 @@
 namespace Xi\Validate\Validate\Symfony;
 
 use Symfony\Component\Validator\Constraint;
-use Xi\Validate\Validate\CompanyIdValidate as CompanyIdValidateGeneric;
+use Xi\Validate\Validate\FinnishCompanyIdValidate as FinnishCompanyIdValidateGeneric;
 
 /**
- * Symfony company ID validator
+ * Symfony Finnish company ID validator
  * 
  * @Annotation
  * @api
@@ -15,7 +15,7 @@ use Xi\Validate\Validate\CompanyIdValidate as CompanyIdValidateGeneric;
  * @subpackage Symfony
  * @author     Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class CompanyId extends Constraint
+class FinnishCompanyId extends Constraint
 {
     /**
      * 
@@ -32,9 +32,9 @@ class CompanyId extends Constraint
      * @var array
      */
     protected $messageTemplates = array(
-        CompanyIdValidateGeneric::MSG_STRING    => "Value of '{{ value }}' is not a string.",
-        CompanyIdValidateGeneric::MSG_FORMAT    => "Value of '{{ value }}' is not well formatted.",
-        CompanyIdValidateGeneric::MSG_CHECKSUM  => "Checksum failure for value '{{ value }}'.",
+        FinnishCompanyIdValidateGeneric::MSG_STRING    => "Value of '{{ value }}' is not a string.",
+        FinnishCompanyIdValidateGeneric::MSG_FORMAT    => "Value of '{{ value }}' is not well formatted.",
+        FinnishCompanyIdValidateGeneric::MSG_CHECKSUM  => "Checksum failure for value '{{ value }}'.",
     ); 
     
     /**

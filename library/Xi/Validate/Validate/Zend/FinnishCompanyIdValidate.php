@@ -1,7 +1,7 @@
 <?php
 namespace Xi\Validate\Validate\Zend;
 
-use Xi\Validate\Validate\CompanyIdValidate as CompanyIdValidateGeneric;
+use Xi\Validate\Validate\FinnishCompanyIdValidate as FinnishCompanyIdValidateGeneric;
 
 /**
  * Validates Finnish Company ID (Y-tunnus).
@@ -11,13 +11,13 @@ use Xi\Validate\Validate\CompanyIdValidate as CompanyIdValidateGeneric;
  * @subpackage Zend
  * @author     Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class CompanyIdValidate extends \Zend_Validate_Abstract
+class FinnishCompanyIdValidate extends \Zend_Validate_Abstract
 {
     
     protected $_messageTemplates = array(
-        CompanyIdValidateGeneric::MSG_STRING    => "Value is not a string.",
-        CompanyIdValidateGeneric::MSG_FORMAT    => "Value is not well formatted.",
-        CompanyIdValidateGeneric::MSG_CHECKSUM  => "Checksum failure.",
+        FinnishCompanyIdValidateGeneric::MSG_STRING    => "Value is not a string.",
+        FinnishCompanyIdValidateGeneric::MSG_FORMAT    => "Value is not well formatted.",
+        FinnishCompanyIdValidateGeneric::MSG_CHECKSUM  => "Checksum failure.",
     );
     
     /**
@@ -30,7 +30,7 @@ class CompanyIdValidate extends \Zend_Validate_Abstract
     {
         $this->_setValue($value);
 
-        $validator = new CompanyIdValidateGeneric();
+        $validator = new FinnishCompanyIdValidateGeneric();
         
         if($validator->isValid($value)) {
             return true;

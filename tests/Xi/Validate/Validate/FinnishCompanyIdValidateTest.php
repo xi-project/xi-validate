@@ -1,35 +1,35 @@
 <?php
 namespace Xi\Validate\Validate;
 
-class CompanyIdValidateTest extends \PHPUnit_Framework_TestCase
+class FinnishCompanyIdValidateTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->validator = new CompanyIdValidate();
+        $this->validator = new FinnishCompanyIdValidate();
     }
     
     public function testValidationFailsIfValueIsNotString()
     {
         $this->assertFalse($this->validator->isValid(array('not a string')));                    
-        $this->assertEquals(array(CompanyIdValidate::MSG_STRING), $this->validator->getErrors());
+        $this->assertEquals(array(FinnishCompanyIdValidate::MSG_STRING), $this->validator->getErrors());
     }
     
     public function testValidationFailsIfLengthIsNotValid()
     {
         $this->assertFalse($this->validator->isValid('071162-1'));                    
-        $this->assertEquals(array(CompanyIdValidate::MSG_FORMAT), $this->validator->getErrors());
+        $this->assertEquals(array(FinnishCompanyIdValidate::MSG_FORMAT), $this->validator->getErrors());
     }
     
     public function testValidationFailsIfDashIsNotPresent()
     {
         $this->assertFalse($this->validator->isValid('071162111'));                    
-        $this->assertEquals(array(CompanyIdValidate::MSG_FORMAT), $this->validator->getErrors());
+        $this->assertEquals(array(FinnishCompanyIdValidate::MSG_FORMAT), $this->validator->getErrors());
     }
     
     public function testValidationFailsIfPartsAreNotNumeroc()
     {
         $this->assertFalse($this->validator->isValid('123S567-B'));                    
-        $this->assertEquals(array(CompanyIdValidate::MSG_FORMAT), $this->validator->getErrors());
+        $this->assertEquals(array(FinnishCompanyIdValidate::MSG_FORMAT), $this->validator->getErrors());
     }
     
     /**

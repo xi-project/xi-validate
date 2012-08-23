@@ -1,11 +1,11 @@
 <?php
 namespace Xi\Validate\Validate\Zend;
 
-class CompanyIdValidateTest extends \PHPUnit_Framework_TestCase
+class FinnishCompanyIdValidateTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->validator = new CompanyIdValidate();
+        $this->validator = new FinnishCompanyIdValidate();
     }
     
     public function testValidationReturnsTrue()

@@ -8,7 +8,7 @@ namespace Xi\Validate\Validate;
  * @package  Validate
  * @author   Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class CompanyIdValidate extends AbstractValidate
+class FinnishCompanyIdValidate extends AbstractValidate
 {
     const MSG_STRING    = "Value is not a string.";
     const MSG_FORMAT    = "Value is not well formatted.";
