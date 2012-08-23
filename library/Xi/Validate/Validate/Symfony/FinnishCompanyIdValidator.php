@@ -5,47 +5,44 @@ namespace Xi\Validate\Validate\Symfony;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
-use Xi\Validate\Validate\SocialSecurityNumberValidate as SocialSecurityNumberValidateGeneric;
+use Xi\Validate\Validate\FinnishCompanyIdValidate as FinnishCompanyIdValidateGeneric;
 use Xi\Validate\Validate;
 
 /**
- * Validates Finnish SSN or Personal ID (HETU).
+ * Validates Finnish company ID (Y-tunnus).
  * 
  * @api
  * @category   Xi
  * @package    Validate
  * @subpackage Symfony
- * @author Jarmo Roivas <jarmo.roivas@brainalliance.com>
+ * @author     Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class SocialSecurityNumberValidator extends ConstraintValidator
+class FinnishCompanyIdValidator extends ConstraintValidator
 {
     
     /**
+     * Validator instance
      * 
-     * validator instance
-     * 
-     * @var SocialSecurityNumberValidateGeneric
+     * @var FinnishCompanyIdValidateGeneric
      */
     protected $validator = null;
     
     /**
+     * Get generic validator instance
      * 
-     * get generic validator instance
-     * 
-     * @return SocialSecurityNumberValidateGeneric
+     * @return FinnishCompanyIdValidateGeneric
      */
     protected function getValidator()
     {
         if ($this->validator === null) {
-            $this->validator = new SocialSecurityNumberValidateGeneric();
+            $this->validator = new FinnishCompanyIdValidateGeneric();
         }
         
         return $this->validator;
     }
     
     /**
-     * 
-     * validate given value
+     * Validate given value
      * 
      * @param string $value
      * @param Constraint $constraint
@@ -62,7 +59,6 @@ class SocialSecurityNumberValidator extends ConstraintValidator
         }
         
         $value = (string) $value;
-        
         $validator = $this->getValidator();
         
         if ($validator->isValid($value)) {
@@ -73,11 +69,8 @@ class SocialSecurityNumberValidator extends ConstraintValidator
             $message = $constraint->getMessage($error);
             $this->setMessage($message, array(
                 '{{ value }}' => $value,
-                '{{ len }}' => $constraint->length,
             ));
-            
         }
-        
         return false;
     }
     

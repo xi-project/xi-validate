@@ -1,22 +1,22 @@
 <?php
 namespace Xi\Validate\Validate\Zend;
 
-class SocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCase
+class FinnishCompanyIdValidateTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->validator = new SocialSecurityNumberValidate();
+        $this->validator = new FinnishCompanyIdValidate();
     }
     
     public function testValidationReturnsTrue()
     {
-        $this->assertTrue($this->validator->isValid('071162-417U'));
+        $this->assertTrue($this->validator->isValid('0603539-4'));
         $this->assertEmpty($this->validator->getErrors());
     }
     
     public function testValidationReturnsFalse()
     {
-        $this->assertFalse($this->validator->isValid('100385-169D'));
+        $this->assertFalse($this->validator->isValid('1A34567-1'));
         $this->assertNotEmpty($this->validator->getErrors());
     }
 }
