@@ -11,7 +11,7 @@ use Xi\Validate\Validate\CompanyIdValidate as CompanyIdValidateGeneric;
  * @subpackage Zend
  * @author     Artur Gajewski <artur.gajewski@soprano.fi>
  */
-class SocialSecurityNumberValidate extends \Zend_Validate_Abstract
+class CompanyIdValidate extends \Zend_Validate_Abstract
 {
     
     protected $_messageTemplates = array(
