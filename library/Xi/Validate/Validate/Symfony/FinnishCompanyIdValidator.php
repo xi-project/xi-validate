@@ -19,7 +19,16 @@ use Xi\Validate\Validate;
  */
 class FinnishCompanyIdValidator extends ConstraintValidator
 {
-    
+    /**
+     * @param mixed $value
+     * @param Constraint $constraint
+     * @return bool
+     */
+    public function validate($value, Constraint $constraint)
+    {
+        return $this->isValid($value, $constraint);
+    }
+
     /**
      * Validator instance
      * 

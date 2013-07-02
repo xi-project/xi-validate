@@ -1,0 +1,12 @@
+{
+    "name": "xi/validate",
+    "description": "A collection of validators",
+    "autoload": {
+        "psr-0": { "Xi\\Validate": "library/" }
+    },
+
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "minimum-stability": "stable",
+}
