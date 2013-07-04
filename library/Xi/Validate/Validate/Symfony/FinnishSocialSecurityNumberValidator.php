@@ -21,7 +21,39 @@ use Xi\Validate\Validate;
  */
 class FinnishSocialSecurityNumberValidator extends ConstraintValidator
 {
-    
+    /**
+     * {@inheritDoc}
+     */
+    public function validate($value, Constraint $constraint)
+    {
+        if (null === $value || '' === $value) {
+            return true;
+        }
+
+        if (!is_scalar($value) && !(is_object($value) && method_exists($value, '__toString'))) {
+            throw new UnexpectedTypeException($value, 'string');
+        }
+
+        $value = (string) $value;
+
+        $validator = $this->getValidator();
+
+        if ($validator->isValid($value)) {
+            return true;
+        }
+
+        foreach ($validator->getErrors() as $error) {
+            $message = $constraint->getMessage($error);
+            $this->context->addViolation($message, array(
+                    '{{ value }}' => $value,
+                    '{{ len }}' => $constraint->length,
+                ));
+
+        }
+
+        return false;
+    }
+
     /**
      * 
      * validator instance
@@ -44,43 +76,4 @@ class FinnishSocialSecurityNumberValidator extends ConstraintValidator
         
         return $this->validator;
     }
-    
-    /**
-     * 
-     * validate given value
-     * 
-     * @param string $value
-     * @param Constraint $constraint
-     * @return bool
-     */
-    public function isValid($value, Constraint $constraint)
-    {
-        if (null === $value || '' === $value) {
-            return true;
-        }
-
-        if (!is_scalar($value) && !(is_object($value) && method_exists($value, '__toString'))) {
-            throw new UnexpectedTypeException($value, 'string');
-        }
-        
-        $value = (string) $value;
-        
-        $validator = $this->getValidator();
-        
-        if ($validator->isValid($value)) {
-            return true;
-        }
-        
-        foreach ($validator->getErrors() as $error) {
-            $message = $constraint->getMessage($error);
-            $this->setMessage($message, array(
-                '{{ value }}' => $value,
-                '{{ len }}' => $constraint->length,
-            ));
-            
-        }
-        
-        return false;
-    }
-    
 }
