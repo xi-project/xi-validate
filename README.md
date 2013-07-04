@@ -27,6 +27,11 @@ Change log
 
 Versions are tagged.
 
+v0.3
+----
+
+Updated Symfony Validator component to implement Symfony/Validate version 2.3 interfaces.
+
 v0.2
 ----
 
