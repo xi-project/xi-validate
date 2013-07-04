@@ -8,5 +8,8 @@
     "require": {
         "php": ">=5.3.3"
     },
+    "suggest": {
+        "symfony/validator": "Use validator version >=2.3"
+    },
     "minimum-stability": "stable"
 }
