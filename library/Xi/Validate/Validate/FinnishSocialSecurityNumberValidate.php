@@ -29,7 +29,21 @@ class FinnishSocialSecurityNumberValidate extends AbstractValidate
      * Values for the characters representing the centuries in the id.
      * @var array
      */
-    protected $centuries = array("+" => "18", "-" => "19", "A" => "20");
+    protected $centuries = array(
+        "+" => "18",
+        "-" => "19",
+        "Y" => "19",
+        "X" => "19",
+        "W" => "19",
+        "V" => "19",
+        "U" => "19",
+        "A" => "20",
+        "B" => "20",
+        "C" => "20",
+        "D" => "20",
+        "E" => "20",
+        "F" => "20",
+    );
     
     /**
      * Minimum numeric value of the second part of the id.
