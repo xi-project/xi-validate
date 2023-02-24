@@ -80,7 +80,29 @@ class FinnishSocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCas
             array('071162-417U'),
             array('071162-417u'),
             array('010204A082X'),
-            array('010204a082x') 
+            array('010204a082x'),
+
+            array('010594Y9032'),
+            array('010594y9021'),
+            array('020594X903P'),
+            array('020594x902n'),
+            array('030694W9024'),
+            array('030594w903b'),
+            array('040594V9030'),
+            array('040594v902y'),
+            array('050594U902L'),
+            array('050594u903m'),
+
+            array('010516B903X'),
+            array('010516b902w'),
+            array('020516C903K'),
+            array('020516c902j'),
+            array('030516D9037'),
+            array('030516d9026'),
+            array('010501E9032'),
+            array('020502e902x'),
+            array('020503F9037'),
+            array('090909f0909'),
         );
     }
 
@@ -90,7 +112,10 @@ class FinnishSocialSecurityNumberValidateTest extends \PHPUnit_Framework_TestCas
     public function invalidDataProvider()
     {
         return array(
-            array('100385-169D')
+            array('100385-169D'),
+            array('100385+169D'),
+            array('100385A169D'),
+            array('100385a169d'),
         );
     }
 }
