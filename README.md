@@ -27,6 +27,11 @@ Change log
 
 Versions are tagged.
 
+v0.4
+----
+
+Updated FinnishSocialSecurityNumberValidate to include new century chars.
+
 v0.3
 ----
 
